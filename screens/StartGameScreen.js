@@ -3,6 +3,7 @@ import React from 'react'
 import PrimaryButton from '../components/PrimaryButton'
 
 const StartGameScreen = () => {
+  const inputHandler = text => console.log(text)
   return (
     <View style={styles.inputContainer}>
       <TextInput
