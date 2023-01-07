@@ -1,9 +1,11 @@
 import { View, TextInput, StyleSheet } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import PrimaryButton from '../components/PrimaryButton'
 
 const StartGameScreen = () => {
-  const inputHandler = text => console.log(text)
+  const [enteredText, setEnteredText] = useState('')
+
+  const inputHandler = text => setEnteredText(text)
   return (
     <View style={styles.inputContainer}>
       <TextInput
