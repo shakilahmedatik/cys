@@ -3,22 +3,27 @@ import React, { useState } from 'react'
 import PrimaryButton from '../components/PrimaryButton'
 
 const StartGameScreen = () => {
-  const [enteredText, setEnteredText] = useState('')
+  const [enteredNumber, setEnteredNumber] = useState('')
 
-  const inputHandler = text => setEnteredText(text)
+  const numberInputHandler = enteredText => setEnteredNumber(enteredText)
+  const confirmInputHandler = () => {
+    // Logic goes here...
+  }
   return (
     <View style={styles.inputContainer}>
       <TextInput
         style={styles.numberInput}
         maxLength={2}
         keyboardType='number-pad'
+        onChange={numberInputHandler}
+        value={enteredNumber}
       />
       <View style={styles.buttonsContainer}>
         <View style={styles.buttonContainer}>
           <PrimaryButton>Reset</PrimaryButton>
         </View>
         <View style={styles.buttonContainer}>
-          <PrimaryButton>Confirm</PrimaryButton>
+          <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
         </View>
       </View>
     </View>
