@@ -24,7 +24,7 @@ export default function App() {
         resizeMode='cover'
         imageStyle={styles.backgroundImage}
       >
-        <SafeAreaView>
+        <SafeAreaView style={styles.rootScreen}>
           {userNumber ? (
             <GameScreen />
           ) : (
