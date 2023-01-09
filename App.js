@@ -1,15 +1,9 @@
-import { StatusBar } from 'expo-status-bar'
-import {
-  ImageBackground,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native'
+import { ImageBackground, SafeAreaView, StyleSheet } from 'react-native'
 import StartGameScreen from './screens/StartGameScreen'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useState } from 'react'
 import GameScreen from './screens/GameScreen'
+import Colors from './constants/colors'
 
 export default function App() {
   const [userNumber, setUserNumber] = useState()
@@ -17,7 +11,10 @@ export default function App() {
     setUserNumber(pickedNumber)
   }
   return (
-    <LinearGradient colors={['#4e0329', '#ddb52f']} style={styles.rootScreen}>
+    <LinearGradient
+      colors={[Colors.primary700, Colors.accent500]}
+      style={styles.rootScreen}
+    >
       <ImageBackground
         source={require('./assets/images/background.jpg')}
         style={styles.rootScreen}
