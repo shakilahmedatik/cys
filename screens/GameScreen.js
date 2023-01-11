@@ -5,23 +5,23 @@ import NumberContainer from '../components/game/NumberContainer'
 import PrimaryButton from '../components/ui/PrimaryButton'
 
 const generateRandomBetween = (min, max, exclude) => {
-  const randomNumber = Math.floor(Math.random() * (max - min) + min)
-  if (randomNumber === exclude) {
+  const rndNum = Math.floor(Math.random() * (max - min)) + min
+
+  if (rndNum === exclude) {
     return generateRandomBetween(min, max, exclude)
   } else {
-    return randomNumber
+    return rndNum
   }
 }
 
+let minBoundary = 1
+let maxBoundary = 100
 const GameScreen = ({ userNumber }) => {
-  let minBoundary = 1
-  let maxBoundary = 100
   const initialGuess = generateRandomBetween(
     minBoundary,
     maxBoundary,
     userNumber
   )
-  console.log(initialGuess)
   const [currentGuess, setCurrentGuess] = useState(initialGuess)
   const nextGuessHandler = direction => {
     if (
@@ -36,7 +36,7 @@ const GameScreen = ({ userNumber }) => {
     if (direction === 'lower') {
       maxBoundary = currentGuess
     } else {
-      minBoundary = currentGuess - 1
+      minBoundary = currentGuess + 1
     }
     const newRndNumber = generateRandomBetween(
       minBoundary,
@@ -45,6 +45,8 @@ const GameScreen = ({ userNumber }) => {
     )
     setCurrentGuess(newRndNumber)
   }
+  console.log('currentGuess', currentGuess)
+  console.log('userNumber', userNumber)
   return (
     <View style={styles.screen}>
       <Title>Opponent's Guess</Title>
