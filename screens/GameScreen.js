@@ -22,7 +22,6 @@ const GameScreen = ({ userNumber, onGameOver }) => {
   const [currentGuess, setCurrentGuess] = useState(initialGuess)
   useEffect(() => {
     if (currentGuess === userNumber) {
-      //Call function to update state in App.js
       onGameOver()
     }
   }, [currentGuess])
