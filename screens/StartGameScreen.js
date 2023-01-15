@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import PrimaryButton from '../components/ui/PrimaryButton'
 import Colors from '../constants/colors'
 import Card from '../components/ui/Card'
+import InstructionText from '../components/ui/InstructionText'
 
 const StartGameScreen = ({ onPickNumber }) => {
   const [enteredNumber, setEnteredNumber] = useState('')
@@ -26,7 +27,9 @@ const StartGameScreen = ({ onPickNumber }) => {
 
   return (
     <Card>
-      <Text style={styles.instructionText}>Enter a Number</Text>
+      <InstructionText style={styles.instructionText}>
+        Enter a Number
+      </InstructionText>
       <TextInput
         style={styles.numberInput}
         maxLength={2}
@@ -60,10 +63,6 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     fontWeight: 'bold',
     textAlign: 'center',
-  },
-  instructionText: {
-    fontSize: 24,
-    color: Colors.accent500,
   },
   buttonsContainer: {
     flexDirection: 'row',
