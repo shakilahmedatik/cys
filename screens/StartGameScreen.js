@@ -1,7 +1,8 @@
-import { View, TextInput, StyleSheet, Alert } from 'react-native'
+import { View, TextInput, StyleSheet, Alert, Text } from 'react-native'
 import React, { useState } from 'react'
 import PrimaryButton from '../components/ui/PrimaryButton'
 import Colors from '../constants/colors'
+import Card from '../components/ui/Card'
 
 const StartGameScreen = ({ onPickNumber }) => {
   const [enteredNumber, setEnteredNumber] = useState('')
@@ -24,7 +25,8 @@ const StartGameScreen = ({ onPickNumber }) => {
   const resetInputHandler = () => setEnteredNumber('')
 
   return (
-    <View style={styles.inputContainer}>
+    <Card>
+      <Text style={styles.instructionText}>Enter a Number</Text>
       <TextInput
         style={styles.numberInput}
         maxLength={2}
@@ -41,26 +43,13 @@ const StartGameScreen = ({ onPickNumber }) => {
           <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
         </View>
       </View>
-    </View>
+    </Card>
   )
 }
 
 export default StartGameScreen
 
 const styles = StyleSheet.create({
-  inputContainer: {
-    alignItems: 'center',
-    marginTop: 100,
-    padding: 16,
-    backgroundColor: Colors.primary800,
-    marginHorizontal: 24,
-    borderRadius: 8,
-    elevation: 4,
-    shadowColor: 'black',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 6,
-  },
   numberInput: {
     height: 50,
     width: 50,
@@ -71,6 +60,10 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  instructionText: {
+    fontSize: 24,
+    color: Colors.accent500,
   },
   buttonsContainer: {
     flexDirection: 'row',
