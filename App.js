@@ -5,10 +5,20 @@ import { useState } from 'react'
 import GameScreen from './screens/GameScreen'
 import Colors from './constants/colors'
 import GameOverScreen from './screens/GameOverScreen'
-
+import { useFonts } from 'expo-font'
+import AppLoading from 'expo-app-loading'
 export default function App() {
   const [gameIsOver, setGameIsOver] = useState(true)
   const [userNumber, setUserNumber] = useState()
+
+  const [fontsLoading] = useFonts({
+    'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
+    'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
+  })
+
+  if (!fontsLoading) {
+    return <AppLoading />
+  }
 
   const pickedNumberHandler = pickedNumber => {
     setUserNumber(pickedNumber)
