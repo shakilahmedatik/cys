@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Alert } from 'react-native'
+import { View, StyleSheet, Alert } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import Title from '../components/ui/Title'
 import NumberContainer from '../components/game/NumberContainer'
@@ -26,6 +26,8 @@ const GameScreen = ({ userNumber, onGameOver }) => {
   useEffect(() => {
     if (currentGuess === userNumber) {
       onGameOver()
+      minBoundary = 1
+      maxBoundary = 100
     }
   }, [currentGuess])
   const nextGuessHandler = direction => {
