@@ -7,6 +7,7 @@ import Colors from './constants/colors'
 import GameOverScreen from './screens/GameOverScreen'
 import { useFonts } from 'expo-font'
 import AppLoading from 'expo-app-loading'
+import Main from './screens/Main'
 export default function App() {
   const [gameIsOver, setGameIsOver] = useState(true)
   const [userNumber, setUserNumber] = useState()

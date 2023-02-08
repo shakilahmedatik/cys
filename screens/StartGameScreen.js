@@ -4,6 +4,7 @@ import PrimaryButton from '../components/ui/PrimaryButton'
 import Colors from '../constants/colors'
 import Card from '../components/ui/Card'
 import InstructionText from '../components/ui/InstructionText'
+import Main from './Main'
 
 const StartGameScreen = ({ onPickNumber }) => {
   const [enteredNumber, setEnteredNumber] = useState('')
@@ -26,27 +27,29 @@ const StartGameScreen = ({ onPickNumber }) => {
   const resetInputHandler = () => setEnteredNumber('')
 
   return (
-    <Card>
-      <InstructionText style={styles.instructionText}>
-        Enter a Number
-      </InstructionText>
-      <TextInput
-        style={styles.numberInput}
-        maxLength={2}
-        keyboardType='number-pad'
-        onChangeText={numberInputHandler}
-        autoCorrect={false}
-        value={enteredNumber}
-      />
-      <View style={styles.buttonsContainer}>
-        <View style={styles.buttonContainer}>
-          <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
+    <>
+      <Card>
+        <InstructionText style={styles.instructionText}>
+          Enter a Number
+        </InstructionText>
+        <TextInput
+          style={styles.numberInput}
+          maxLength={2}
+          keyboardType='number-pad'
+          onChangeText={numberInputHandler}
+          autoCorrect={false}
+          value={enteredNumber}
+        />
+        <View style={styles.buttonsContainer}>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
+          </View>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
+          </View>
         </View>
-        <View style={styles.buttonContainer}>
-          <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
-        </View>
-      </View>
-    </Card>
+      </Card>
+    </>
   )
 }
 
